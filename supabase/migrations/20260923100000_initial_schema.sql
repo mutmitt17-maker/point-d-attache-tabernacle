@@ -34,3 +34,4 @@ create policy "payment visibility" on church.payments for select using(church.is
 revoke insert,update,delete on church.payments,church.pledges,church.audit_logs from anon,authenticated;
 grant usage on schema church to authenticated; grant select on church.churches,church.profiles,church.neighborhoods,church.church_groups,church.members,church.campaigns,church.pledges,church.payments,church.cash_sessions,church.audit_logs to authenticated; grant execute on function church.create_payment(uuid,uuid,numeric,text,text,text,text) to authenticated;
 create index members_search_idx on church.members(church_id,full_name); create index payments_pledge_idx on church.payments(pledge_id,state); create index pledges_campaign_idx on church.pledges(campaign_id,status);
+
